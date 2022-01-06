@@ -1,0 +1,13 @@
+czujnik temperatury:
+https://forbot.pl/blog/kurs-raspberry-pi-czujnik-temperatury-ds18b20-id26430
+
+sterowanie swiatlem:
+https://starter-kit.nettigo.pl/2017/03/rpi-podstawy-sterowanie-gpio-przekaznikami/
+
+GPIO:
+GPIO2 (13) - day light AC
+GPIO3 (15) - day light DC
+GPIO5 (18) - night light
+GPIO4 (16) - temperature sensor
+GPIO6 (22) - temperature alarm
+
