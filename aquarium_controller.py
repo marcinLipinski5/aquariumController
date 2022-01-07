@@ -1,7 +1,7 @@
 import logging
 import RPi.GPIO as GPIO
 from lights_controller import LightsController
-# from temperature_sensor import TemperatureSensor
+from temperature_sensor import TemperatureSensor
 import time
 import threading
 
@@ -23,7 +23,7 @@ class AquariumController:
         self.lights_controller = LightsController(day_lights_pin_ac=2,
                                                   day_lights_pin_dc=3,
                                                   night_lights_pin=4)
-        # self.temperature_sensor = TemperatureSensor()
+        self.temperature_sensor = TemperatureSensor()
         self.thread = threading.Thread(target=self.aquarium_loop, args=(), daemon=True)
         self.thread.start()
 
@@ -31,7 +31,7 @@ class AquariumController:
         while True:
             try:
                 self.lights_controller.check_scheduler()
-                # self.temperature_sensor.check_temperature()
+                self.temperature_sensor.check_temperature()
                 time.sleep(1)
             except Exception as e:
                 logging.warning(f'Something failed: {e}')

@@ -1,7 +1,7 @@
 import os
 
 # import RPi.GPIO as GPIO
-# import w1thermsensor
+import w1thermsensor
 import logging
 import random
 
@@ -16,7 +16,7 @@ class TemperatureSensor:
         self.ALARM = False
 
     def check_temperature(self):
-        temperature = random.randint(22, 25)
+        temperature = random.randint(22, 23)
         # temperature = self.sensor.get_temperature()
         if temperature > self.temperature_max:
             # GPIO.output(21, GPIO.HIGH)
