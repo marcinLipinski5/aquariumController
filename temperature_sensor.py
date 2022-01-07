@@ -1,7 +1,7 @@
 import os
 
 # import RPi.GPIO as GPIO
-import w1thermsensor
+# import w1thermsensor
 import logging
 import random
 
