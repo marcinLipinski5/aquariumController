@@ -59,12 +59,12 @@ class LightsController:
 
     @staticmethod
     def turn_lights_on(pin):
-        GPIO.output(pin, GPIO.HIGH)
+        GPIO.output(pin, GPIO.LOW)
         # pass
 
     @staticmethod
     def turn_lights_off(pin):
-        GPIO.output(pin, GPIO.LOW)
+        GPIO.output(pin, GPIO.HIGH)
         # pass
 
     def check_scheduler(self):
@@ -79,7 +79,7 @@ class LightsController:
             self.turn_lights_off(self.day_lights_pin_dc)
             self.DAY_LIGHT_ON = False
             logging.info('Turning off day lights')
-        if hour in self.dirty_light_list and not self.NIGHT_LIGHT_ON:
+        if hour in self.dirty_light_list and not self.NIGHT_LIGHT_ON and not self.DAY_LIGHT_ON:
             self.turn_lights_on(self.night_lights_pin)
             self.NIGHT_LIGHT_ON = True
             logging.info('Turning on night lights')
