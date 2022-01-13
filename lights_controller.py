@@ -25,6 +25,7 @@ class LightsController:
     def refresh(self):
         self.lights_plan = self.get_lights_plan()
         self.dirty_light_list = self.get_dirty_list_for_night_scheduler()
+        logging.info('Updated lights plan!')
 
     @staticmethod
     def get_lights_plan():
@@ -83,7 +84,7 @@ class LightsController:
             self.turn_lights_on(self.night_lights_pin)
             self.NIGHT_LIGHT_ON = True
             logging.info('Turning on night lights')
-        if hour not in self.dirty_light_list and self.NIGHT_LIGHT_ON:
+        if (hour not in self.dirty_light_list and self.NIGHT_LIGHT_ON) or (self.DAY_LIGHT_ON and self.NIGHT_LIGHT_ON):
             self.turn_lights_off(self.night_lights_pin)
             self.NIGHT_LIGHT_ON = False
             logging.info('Turning off night lights')

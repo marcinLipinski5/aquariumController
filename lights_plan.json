@@ -1,10 +1,10 @@
 {
     "scheduler": {
-        "DAY_LIGHTS_TIME_ON": "00",
-        "DAY_LIGHTS_TIME_OFF": "23",
-        "NIGHT_LIGHTS_TIME_ON_1": "00",
-        "NIGHT_LIGHTS_TIME_OFF_1": "15",
+        "DAY_LIGHTS_TIME_ON": "15",
+        "DAY_LIGHTS_TIME_OFF": "22",
+        "NIGHT_LIGHTS_TIME_ON_1": "22",
+        "NIGHT_LIGHTS_TIME_OFF_1": "23",
         "NIGHT_LIGHTS_TIME_ON_2": "15",
-        "NIGHT_LIGHTS_TIME_OFF_2": "00"
+        "NIGHT_LIGHTS_TIME_OFF_2": "15"
     }
 }
