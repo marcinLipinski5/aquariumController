@@ -49,8 +49,7 @@ class GUI:
                  sg.InputText(default_text=init_values["NIGHT_LIGHTS_TIME_OFF_2"], key='_NIGHT_LIGHTS_TIME_OFF_2_', size=(2, 1))],
             ]), sg.Column([[sg.Submit(key='_UPDATE_', font=FONT_BUTTONS, button_text='Update')]])],
             [sg.Output(size=(85, 10), font=FONT, key='_OUTPUT_')],
-            [sg.Submit(key='_START_', font=FONT_BUTTONS, button_text='Start'),
-             sg.Exit(font=FONT_BUTTONS)]
+            [sg.Exit(font=FONT_BUTTONS)]
         ]
 
         window = sg.Window('Aquarium controller tool', layout)
@@ -62,7 +61,7 @@ class GUI:
                 event, values = window.read(timeout=100)
                 if event in (None, 'Exit'):
                     break
-                elif event == '_START_' and not thread:
+                elif not thread:
                     thread = AquariumController()
                 if thread:
                     if thread.lights_controller.DAY_LIGHT_ON:
