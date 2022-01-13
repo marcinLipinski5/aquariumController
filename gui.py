@@ -60,6 +60,7 @@ class GUI:
             try:
                 event, values = window.read(timeout=100)
                 if event in (None, 'Exit'):
+                    thread.lights_controller.set_init_gpio()
                     break
                 elif not thread:
                     thread = AquariumController()

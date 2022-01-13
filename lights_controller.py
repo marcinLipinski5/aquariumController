@@ -12,15 +12,18 @@ class LightsController:
         self.day_lights_pin_ac = day_lights_pin_ac
         self.day_lights_pin_dc = day_lights_pin_dc
         self.night_lights_pin = night_lights_pin
-        GPIO.setup(self.day_lights_pin_ac, GPIO.OUT, initial=GPIO.HIGH)
-        GPIO.setup(self.day_lights_pin_dc, GPIO.OUT, initial=GPIO.HIGH)
-        GPIO.setup(self.night_lights_pin, GPIO.OUT, initial=GPIO.HIGH)
+        self.set_init_gpio()
 
         self.lights_plan = self.get_lights_plan()
         self.dirty_light_list = self.get_dirty_list_for_night_scheduler()
         self.DAY_LIGHT_ON = False
         self.NIGHT_LIGHT_ON = False
         self.counter = 0
+
+    def set_init_gpio(self):
+        GPIO.setup(self.day_lights_pin_ac, GPIO.OUT, initial=GPIO.HIGH)
+        GPIO.setup(self.day_lights_pin_dc, GPIO.OUT, initial=GPIO.HIGH)
+        GPIO.setup(self.night_lights_pin, GPIO.OUT, initial=GPIO.HIGH)
 
     def refresh(self):
         self.lights_plan = self.get_lights_plan()
